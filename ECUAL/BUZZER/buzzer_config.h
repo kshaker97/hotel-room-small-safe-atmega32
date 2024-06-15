@@ -1,0 +1,7 @@
+#ifndef BUZZER_CONFIG_H_
+#define BUZZER_CONFIG_H_
+
+#define BUZZER_PORT DIO_PORTD
+#define BUZZER_PIN 0
+
+#endif /* BUZZER_CONFIG_H_ */

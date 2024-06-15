@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="hotel-room-small-safe" />
+		<Option pch_mode="2" />
+		<Option compiler="avr-gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/hotel-room-small-safe.elf" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="5" />
+				<Option compiler="avr-gcc" />
+				<Compiler>
+					<Add option="-Os" />
+				</Compiler>
+			</Target>
+			<Environment>
+				<Variable name="MCU" value="atmega32" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-mmcu=atmega32" />
+			<Add option="-DF_CPU=16000000UL" />
+		</Compiler>
+		<Linker>
+			<Add option="-mmcu=atmega32" />
+			<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="avr-objdump -h -S $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).lss" />
+			<Add after="avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).hex" />
+			<Add after="avr-objcopy --no-change-warnings -j .eeprom --change-section-lma .eeprom=0 -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).eep" />
+			<Add after="avr-objcopy --no-change-warnings -j .lock --change-section-lma .lock=0 -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).lock" />
+			<Add after="avr-objcopy --no-change-warnings -j .signature --change-section-lma .signature=0 -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).sig" />
+			<Add after="avr-objcopy --no-change-warnings -j .fuse --change-section-lma .fuse=0 -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).fuse" />
+		</ExtraCommands>
+		<Unit filename="APP/app_config.h" />
+		<Unit filename="APP/app_interface.h" />
+		<Unit filename="APP/app_private.h" />
+		<Unit filename="APP/app_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ECUAL/BUZZER/buzzer_config.h" />
+		<Unit filename="ECUAL/BUZZER/buzzer_interface.h" />
+		<Unit filename="ECUAL/BUZZER/buzzer_private.h" />
+		<Unit filename="ECUAL/BUZZER/buzzer_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ECUAL/KEYPAD/keypad_config.h" />
+		<Unit filename="ECUAL/KEYPAD/keypad_interface.h" />
+		<Unit filename="ECUAL/KEYPAD/keypad_private.h" />
+		<Unit filename="ECUAL/KEYPAD/keypad_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ECUAL/LCD/lcd_config.h" />
+		<Unit filename="ECUAL/LCD/lcd_interface.h" />
+		<Unit filename="ECUAL/LCD/lcd_private.h" />
+		<Unit filename="ECUAL/LCD/lcd_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MCAL/DIO/dio_config.h" />
+		<Unit filename="MCAL/DIO/dio_interface.h" />
+		<Unit filename="MCAL/DIO/dio_private.h" />
+		<Unit filename="MCAL/DIO/dio_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MCAL/EEPROM/eeprom_config.h" />
+		<Unit filename="MCAL/EEPROM/eeprom_interface.h" />
+		<Unit filename="MCAL/EEPROM/eeprom_private.h" />
+		<Unit filename="MCAL/EEPROM/eeprom_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MCAL/TIMER0/timer0_config.h" />
+		<Unit filename="MCAL/TIMER0/timer0_interface.h" />
+		<Unit filename="MCAL/TIMER0/timer0_private.h" />
+		<Unit filename="MCAL/TIMER0/timer0_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="UTILS/bit_math.h" />
+		<Unit filename="UTILS/std_types.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
